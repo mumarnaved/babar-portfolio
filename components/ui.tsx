@@ -30,7 +30,7 @@ export function Reveal({ children, className = "", delay = 0 }: { children: Reac
 }
 
 export function Faq({ items }: { items: { q: string; a: string }[] }) {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
   return (
     <div className="space-y-3">
       {items.map((f, i) => (

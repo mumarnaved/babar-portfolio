@@ -2,7 +2,7 @@
 import { Faq, Nav, Reveal } from "@/components/ui";
 import { about, brands, caseStudies, editedVideos, faqs, handles, process, services, site, stats, testimonials, ugcAds, type MediaItem } from "@/lib/content";
 
-const mail = `mailto:${site.email}`;
+const mail = `https://mail.google.com/mail/?view=cm&fs=1&to=${site.email}&su=${encodeURIComponent("Project enquiry")}`;
 
 function Eyebrow({ children, light = false }: { children: string; light?: boolean }) {
   return <p className={`mb-4 text-center text-base font-semibold uppercase tracking-[0.16em] sm:text-lg ${light ? "text-white/85" : "text-brand"}`}>{children}</p>;
@@ -145,7 +145,7 @@ export default function Home() {
               <a href={site.bookingUrl} className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand">
                 {site.ctaLabel}
               </a>
-              <a href={mail} className="rounded-full border-2 border-foreground bg-white px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface">
+              <a href={mail} target="_blank" rel="noreferrer" className="rounded-full border-2 border-foreground bg-white px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface">
                 Email me
               </a>
             </div>
@@ -373,7 +373,7 @@ export default function Home() {
                 <a href={site.bookingUrl} className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand">
                   {site.ctaLabel}
                 </a>
-                <a href={mail} className="rounded-full border-2 border-foreground bg-white px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface">
+                <a href={mail} target="_blank" rel="noreferrer" className="rounded-full border-2 border-foreground bg-white px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface">
                   Email me
                 </a>
                 <a href={site.linkedin} target="_blank" rel="noreferrer" className="rounded-full border-2 border-foreground bg-white px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface">
@@ -399,7 +399,7 @@ export default function Home() {
               <a href={site.bookingUrl} target="_blank" rel="noreferrer" className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand transition-colors hover:bg-brand-soft">
                 {site.ctaLabel}
               </a>
-              <a href={mail} className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+              <a href={mail} target="_blank" rel="noreferrer" className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
                 Email me
               </a>
             </div>
@@ -451,7 +451,7 @@ export default function Home() {
 
             <div className="text-sm">
               <p className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-white/50">Get in touch</p>
-              <a href={mail} className="block py-1.5 text-white/85 transition-colors hover:text-white">{site.email}</a>
+              <a href={mail} target="_blank" rel="noreferrer" className="block py-1.5 text-white/85 transition-colors hover:text-white">{site.email}</a>
               <p className="py-1.5 text-white/85">{site.location}</p>
               <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-xs text-white/80">
                 <span className="h-2 w-2 rounded-full bg-[#7fd1a6]" />
@@ -470,7 +470,7 @@ export default function Home() {
 
       {/* floating email */}
       <a
-        href={mail}
+        href={mail} target="_blank" rel="noreferrer"
         aria-label="Email me"
         className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-brand text-white shadow-xl transition-transform hover:scale-105"
       >
