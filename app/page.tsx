@@ -283,7 +283,7 @@ export default function Home() {
                     </div>
                     <span className="hidden shrink-0 rounded-full bg-brand px-4 py-2 text-sm text-white transition-colors group-hover:bg-brand-bright sm:block">Visit →</span>
                   </div>
-                  {h.desc && <p className="line-clamp-4 px-3 pb-4 text-center text-xs leading-relaxed text-muted sm:line-clamp-none sm:px-5 sm:pb-6 sm:text-left sm:text-[15px]">{h.desc}</p>}
+                  {h.desc && <p className="px-3 pb-4 text-center text-xs leading-relaxed text-muted sm:px-5 sm:pb-6 sm:text-left sm:text-[15px]">{h.desc}</p>}
                 </a>
               </Reveal>
             ))}
