@@ -468,9 +468,8 @@ export default function Home() {
         aria-label="Email me"
         className="fixed bottom-4 right-4 z-50 grid h-12 w-12 sm:bottom-5 sm:right-5 sm:h-14 sm:w-14 place-items-center rounded-full bg-brand text-white shadow-xl transition-transform hover:scale-105"
       >
-        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12Z" />
-        </svg>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/icons/gmail.png" alt="" className="h-6 w-6 object-contain sm:h-7 sm:w-7" />
       </a>
     </>
   );
