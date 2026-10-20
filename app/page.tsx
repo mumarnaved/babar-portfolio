@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Faq, Nav, Reveal } from "@/components/ui";
-import { about, brands, caseStudies, editedVideos, faqs, handles, process, services, site, stats, testimonials, ugcAds, type MediaItem } from "@/lib/content";
+import { about, brands, caseStudies, editedVideos, faqs, handles, process, services, site, testimonials, ugcAds, type MediaItem } from "@/lib/content";
 
 const mail = `https://mail.google.com/mail/?view=cm&fs=1&to=${site.email}&su=${encodeURIComponent("Project enquiry")}`;
 
@@ -59,7 +59,7 @@ function MediaCard({ item, aspect, tone, dark = false }: { item: MediaItem; aspe
   return (
     <figure>
       <div className={`${aspect} overflow-hidden rounded-3xl bg-surface`}>{body}</div>
-      <figcaption className="mt-3">
+      <figcaption className="mt-3 text-center sm:text-left">
         <p className="text-sm font-semibold">{item.title}</p>
         {item.sub && <p className={`text-xs ${dark ? "text-white/60" : "text-muted"}`}>{item.sub}</p>}
       </figcaption>
@@ -100,7 +100,7 @@ export default function Home() {
         <section id="about" className="mx-auto max-w-6xl scroll-mt-20 px-5 pb-6 pt-10">
           <Reveal>
             <div className="grid items-center gap-10 rounded-[2rem] bg-surface p-6 sm:p-10 md:grid-cols-[1.1fr_1fr]">
-              <div>
+              <div className="text-center md:text-left">
                 <p className="mb-3 text-base font-semibold uppercase tracking-[0.16em] text-brand sm:text-lg">About</p>
                 <h2 className="display text-4xl font-semibold sm:text-5xl lg:text-6xl">{about.title}</h2>
                 <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-muted">
@@ -108,7 +108,7 @@ export default function Home() {
                     <p key={b}>{b}</p>
                   ))}
                 </div>
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap justify-center gap-2 md:justify-start">
                   {site.socials.map((s) => (
                     <a key={s.label} href={s.href} className="rounded-full border border-line bg-white px-4 py-1.5 text-xs font-medium transition-colors hover:border-brand hover:text-brand">
                       {s.label}
@@ -152,7 +152,12 @@ export default function Home() {
           </div>
 
           {/* brand marquee */}
-          <div className="relative mx-auto mt-16 max-w-4xl overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_15%,#000_85%,transparent)]">
+          <div className="mx-auto mt-16 flex max-w-5xl flex-col items-center gap-5 md:flex-row md:gap-8">
+          <p className="shrink-0 text-center text-sm font-semibold uppercase leading-snug tracking-[0.14em] text-brand md:border-r md:border-line md:pr-8 md:text-left">
+            Brands I&apos;ve
+            <br className="hidden md:block" /> <span className="md:block">worked with</span>
+          </p>
+          <div className="relative min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)] max-md:w-full">
             <div className="marquee flex w-max" style={{ animationDuration: `${brands.length * 40}s` }}>
               {marquee.map((b, i) => (
                 <span key={i} className="flex h-16 shrink-0 items-center pr-16" aria-hidden={i >= brands.length}>
@@ -165,17 +170,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
-
-        {/* STATS */}
-        <section className="px-5">
-          <div className="mx-auto grid max-w-5xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-white px-6 py-8 text-center">
-                <p className="display text-4xl font-semibold text-brand">{s.value}</p>
-                <p className="mt-1 text-sm text-muted">{s.label}</p>
-              </div>
-            ))}
           </div>
         </section>
 
@@ -194,8 +188,8 @@ export default function Home() {
                     <img src={c.image} alt={`${c.title} — Meta Ads Manager screenshot`} loading="lazy" className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]" />
                     <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-brand shadow">{c.result}</span>
                   </a>
-                  <div className="flex flex-1 flex-col p-6">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-1 flex-col p-6 text-center sm:text-left">
+                    <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-between">
                       <h3 className="text-lg font-semibold">{c.title}</h3>
                       <span className="rounded-full bg-brand-soft px-3 py-1 text-xs text-brand">{c.tag}</span>
                     </div>
@@ -220,11 +214,11 @@ export default function Home() {
         <section id="services" className="mx-auto max-w-6xl scroll-mt-20 px-5 pb-24">
           <Eyebrow>What I do</Eyebrow>
           <Heading>Everything your brand needs to grow on social.</Heading>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {services.map((s, i) => (
               <Reveal key={s.title} delay={(i % 3) * 100}>
-                <div className="h-full rounded-3xl border border-line bg-white p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-lg">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-brand">
+                <div className="h-full rounded-3xl border border-line bg-white p-4 text-center transition-all sm:p-6 sm:text-left hover:-translate-y-1 hover:border-brand/40 hover:shadow-lg">
+                  <span className="mx-auto grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-brand sm:mx-0">
                     {s.iconImage ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={s.iconImage} alt="" className="h-7 w-7 object-contain" />
@@ -232,8 +226,8 @@ export default function Home() {
                       <Icon name={s.icon} />
                     )}
                   </span>
-                  <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{s.text}</p>
+                  <h3 className="mt-4 text-base font-semibold sm:mt-5 sm:text-lg">{s.title}</h3>
+                  <p className="mt-2 text-[13px] leading-relaxed text-muted sm:text-[15px]">{s.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -245,13 +239,13 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <p className="mb-4 text-center text-base font-semibold uppercase tracking-[0.16em] text-white/85 sm:text-lg">How it works</p>
             <h2 className="display mx-auto max-w-2xl text-center text-4xl font-semibold sm:text-5xl lg:text-6xl">Three steps to your next big campaign.</h2>
-            <div className="mt-14 grid gap-5 md:grid-cols-3">
+            <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
               {process.map((p, i) => (
-                <Reveal key={p.n} delay={i * 120}>
-                  <div className="h-full rounded-3xl bg-white/8 p-7 ring-1 ring-white/15">
+                <Reveal key={p.n} delay={i * 120} className={i === 2 ? "col-span-2 md:col-span-1" : ""}>
+                  <div className="h-full rounded-3xl bg-white/8 p-5 text-center ring-1 ring-white/15 sm:p-7 sm:text-left">
                     <span className="text-sm text-white/50">{p.n}</span>
-                    <h3 className="mt-6 text-2xl font-semibold leading-snug">{p.title}</h3>
-                    <p className="mt-3 text-[15px] leading-relaxed text-white/70">{p.text}</p>
+                    <h3 className="mt-4 text-lg font-semibold leading-snug sm:mt-6 sm:text-2xl">{p.title}</h3>
+                    <p className="mt-3 text-[13px] leading-relaxed text-white/70 sm:text-[15px]">{p.text}</p>
                   </div>
                 </Reveal>
               ))}
@@ -263,7 +257,7 @@ export default function Home() {
         <section id="social" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-24">
           <Eyebrow>Social media handles</Eyebrow>
           <Heading>Pages I manage and grow.</Heading>
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-6">
             {handles.map((h, i) => (
               <Reveal key={h.handle} delay={(i % 2) * 100}>
                 <a href={h.url} target="_blank" rel="noopener noreferrer" className="group block h-full overflow-hidden rounded-3xl border-2 border-[#bfdccb] bg-white transition-all hover:-translate-y-1 hover:border-brand-bright hover:shadow-lg">
@@ -274,22 +268,22 @@ export default function Home() {
                       <Visual label={h.name} tone={i} />
                     )}
                   </div>
-                  <div className="flex items-center gap-4 p-5 pb-3">
+                  <div className="flex flex-col items-center gap-2 p-3 pb-2 text-center sm:flex-row sm:gap-4 sm:p-5 sm:pb-3 sm:text-left">
                     {h.image ? (
-                      <img src={h.image} alt={h.name} className="h-14 w-14 shrink-0 rounded-full border border-line bg-white object-contain p-1" />
+                      <img src={h.image} alt={h.name} className="h-11 w-11 shrink-0 rounded-full border border-line bg-white object-contain p-1 sm:h-14 sm:w-14" />
                     ) : (
                       <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-brand-soft text-lg font-semibold text-brand">{h.name.charAt(0)}</span>
                     )}
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-semibold">{h.name}</p>
-                      <p className="truncate text-sm text-muted">
+                      <p className="truncate text-sm font-semibold sm:text-base">{h.name}</p>
+                      <p className="truncate text-xs text-muted sm:text-sm">
                         {h.handle} · {h.platform}
                       </p>
-                      {h.stat && <p className="text-sm text-brand-bright">{h.stat}</p>}
+                      {h.stat && <p className="text-xs text-brand-bright sm:text-sm">{h.stat}</p>}
                     </div>
                     <span className="hidden shrink-0 rounded-full bg-brand px-4 py-2 text-sm text-white transition-colors group-hover:bg-brand-bright sm:block">Visit →</span>
                   </div>
-                  {h.desc && <p className="px-5 pb-6 text-[15px] leading-relaxed text-muted">{h.desc}</p>}
+                  {h.desc && <p className="line-clamp-4 px-3 pb-4 text-center text-xs leading-relaxed text-muted sm:line-clamp-none sm:px-5 sm:pb-6 sm:text-left sm:text-[15px]">{h.desc}</p>}
                 </a>
               </Reveal>
             ))}
@@ -301,7 +295,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <Eyebrow light>UGC ads</Eyebrow>
             <Heading>Creator-style ads that stop the scroll.</Heading>
-            <div className="mx-auto mt-14 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto mt-14 grid max-w-5xl grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
               {ugcAds.map((v, i) => (
                 <Reveal key={v.title} delay={(i % 4) * 90}>
                   <MediaCard item={v} aspect="aspect-[9/16]" tone={i} dark />
@@ -315,7 +309,7 @@ export default function Home() {
         <section id="videos" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-24">
           <Eyebrow>Edited videos</Eyebrow>
           <Heading>Reels, shorts and ad edits built to hold attention.</Heading>
-          <div className="mt-14 grid grid-cols-2 gap-5 lg:grid-cols-4">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
             {editedVideos.map((v, i) => (
               <Reveal key={v.title} delay={(i % 4) * 90}>
                 <MediaCard item={v} aspect="aspect-[9/16]" tone={i + 1} />
@@ -334,15 +328,15 @@ export default function Home() {
           </a>
           </div>
           <div className="mt-12 space-y-5 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-            {[testimonials.slice(0, 3), testimonials.slice(3)].map((row, r) => {
-              const group = Array.from({ length: 6 }, (_, k) => row[k % row.length]);
+            {[testimonials.slice(0, Math.ceil(testimonials.length / 2)), testimonials.slice(Math.ceil(testimonials.length / 2))].map((row, r) => {
+              const group = Array.from({ length: row.length * Math.ceil(6 / row.length) }, (_, k) => row[k % row.length]);
               return (
                 <div key={r} className="flex w-max hover:[animation-play-state:paused]" style={{ animation: "marquee 60s linear infinite", animationDirection: r === 0 ? "normal" : "reverse" }}>
                   {[...group, ...group].map((t, i) => (
-                    <figure key={i} className="mr-5 w-[320px] shrink-0 rounded-3xl bg-white p-6 text-foreground sm:w-[380px]">
+                    <figure key={i} className="mr-5 flex h-[336px] w-[320px] shrink-0 flex-col rounded-3xl bg-white p-6 text-foreground sm:h-[272px] sm:w-[380px]">
                       <div className="mb-3 text-brand-bright" aria-label="5 stars">★★★★★</div>
-                      <blockquote className="text-[15px] leading-relaxed">&ldquo;{t.quote}&rdquo;</blockquote>
-                      <figcaption className="mt-5 flex items-center gap-3">
+                      <blockquote className="flex-1 text-[15px] leading-relaxed"><span>&ldquo;{t.quote}&rdquo;</span></blockquote>
+                      <figcaption className="mt-4 flex items-center gap-3">
                         <span className="grid h-10 w-10 place-items-center rounded-full bg-brand text-sm font-semibold text-white">{t.name.charAt(0).toUpperCase()}</span>
                         <span className="leading-tight">
                           <span className="block text-sm font-semibold">{t.name}</span>
@@ -360,16 +354,16 @@ export default function Home() {
         {/* CTA + FAQ */}
         <section id="contact" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-24">
           <div className="grid gap-12 md:grid-cols-2">
-            <div>
+            <div className="text-center md:text-left">
               <span className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-1.5 text-xs font-medium">
                 <span className="h-2 w-2 rounded-full bg-brand-bright" />
                 {site.availability}
               </span>
               <h2 className="display mt-6 text-4xl font-semibold sm:text-6xl">Ready to grow? Let&apos;s make it happen.</h2>
-              <p className="mt-5 max-w-md text-muted">
+              <p className="mx-auto mt-5 max-w-md text-muted md:mx-0">
                 I&apos;m taking on new clients. Whether you need a full Meta ads funnel or a social media manager, let&apos;s talk about your goals.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
                 <a href={site.bookingUrl} className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand">
                   {site.ctaLabel}
                 </a>
@@ -390,12 +384,12 @@ export default function Home() {
       <footer className="bg-brand px-5 text-white">
         <div className="mx-auto max-w-6xl">
           {/* top CTA */}
-          <div className="flex flex-col gap-8 border-b border-white/15 py-14 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col items-center gap-8 border-b border-white/15 py-10 text-center sm:py-14 md:flex-row md:items-center md:justify-between md:text-left">
             <div>
-              <h3 className="display max-w-xl text-3xl font-semibold sm:text-4xl">Let&apos;s turn your ad spend into real growth.</h3>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-white/65">Tell me about your brand and goals. I&apos;ll reply with a clear plan and next steps.</p>
+              <h3 className="display mx-auto max-w-xl text-3xl font-semibold sm:text-4xl">Let&apos;s turn your ad spend into real growth.</h3>
+              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/65 md:mx-0">Tell me about your brand and goals. I&apos;ll reply with a clear plan and next steps.</p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               <a href={site.bookingUrl} target="_blank" rel="noreferrer" className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand transition-colors hover:bg-brand-soft">
                 {site.ctaLabel}
               </a>
@@ -406,9 +400,9 @@ export default function Home() {
           </div>
 
           {/* columns */}
-          <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.3fr]">
-            <div>
-              <div className="flex items-center gap-3">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-9 py-10 text-center sm:gap-12 sm:py-14 sm:text-left lg:grid-cols-[1.6fr_1fr_1fr_1.3fr]">
+            <div className="col-span-2 sm:col-span-1">
+              <div className="flex items-center justify-center gap-3 sm:justify-start">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={site.photo} alt={site.name} className="h-12 w-12 rounded-full object-cover object-[center_28%] ring-2 ring-white/25" />
                 <div className="leading-tight">
@@ -416,10 +410,10 @@ export default function Home() {
                   <p className="text-sm text-white/65">{site.role.split("&")[0].trim()}</p>
                 </div>
               </div>
-              <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
+              <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-white/60 sm:mx-0 sm:mt-5">
                 Helping brands turn Facebook and Instagram into a steady source of leads, messages and sales.
               </p>
-              <div className="mt-6 flex gap-3">
+              <div className="mt-5 flex justify-center gap-3 sm:mt-6 sm:justify-start">
                 {[
                   { label: "LinkedIn", short: "in", href: site.linkedin },
                   { label: "Fiverr", short: "Fi", href: site.fiverr },
@@ -432,26 +426,26 @@ export default function Home() {
             </div>
 
             <div className="text-sm">
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-white/50">Pages</p>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-white/50 sm:mb-5">Pages</p>
               {[["About", "#about"], ["Services", "#services"], ["Projects", "#work"], ["Reviews", "#reviews"], ["Contact", "#contact"]].map(([l, h]) => (
-                <a key={h} href={h} className="block py-1.5 text-white/85 transition-colors hover:text-white">
+                <a key={h} href={h} className="block py-1 text-white/85 transition-colors hover:text-white sm:py-1.5">
                   {l}
                 </a>
               ))}
             </div>
 
             <div className="text-sm">
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-white/50">Services</p>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-white/50 sm:mb-5">Services</p>
               {services.slice(0, 5).map((x) => (
-                <a key={x.title} href="#services" className="block py-1.5 text-white/85 transition-colors hover:text-white">
+                <a key={x.title} href="#services" className="block py-1 text-white/85 transition-colors hover:text-white sm:py-1.5">
                   {x.title}
                 </a>
               ))}
             </div>
 
-            <div className="text-sm">
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-white/50">Get in touch</p>
-              <a href={mail} target="_blank" rel="noreferrer" className="block py-1.5 text-white/85 transition-colors hover:text-white">{site.email}</a>
+            <div className="col-span-2 text-sm sm:col-span-1">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-white/50 sm:mb-5">Get in touch</p>
+              <a href={mail} target="_blank" rel="noreferrer" className="block py-1 text-white/85 transition-colors hover:text-white sm:py-1.5">{site.email}</a>
               <p className="py-1.5 text-white/85">{site.location}</p>
               <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-xs text-white/80">
                 <span className="h-2 w-2 rounded-full bg-[#7fd1a6]" />
@@ -461,7 +455,7 @@ export default function Home() {
           </div>
 
           {/* bottom bar */}
-          <div className="flex flex-col gap-2 border-t border-white/15 py-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-2 border-t border-white/15 py-6 text-center text-xs text-white/55 sm:flex-row sm:text-left sm:items-center sm:justify-between">
             <p>© 2026 {site.name}. All rights reserved.</p>
             <p>Meta Ads · Social Media · UGC · Video Editing</p>
           </div>
@@ -472,7 +466,7 @@ export default function Home() {
       <a
         href={mail} target="_blank" rel="noreferrer"
         aria-label="Email me"
-        className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-brand text-white shadow-xl transition-transform hover:scale-105"
+        className="fixed bottom-4 right-4 z-50 grid h-12 w-12 sm:bottom-5 sm:right-5 sm:h-14 sm:w-14 place-items-center rounded-full bg-brand text-white shadow-xl transition-transform hover:scale-105"
       >
         <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12Z" />

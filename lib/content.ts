@@ -37,19 +37,11 @@ export const brands: { name: string; logo?: string }[] = [
   { name: "NexFlow Technologies", logo: "/images/brands/nexflow-technologies.png" },
 ];
 
-export const stats = [
-  { value: "5.0★", label: "Fiverr rating" },
-  { value: "11", label: "Five-star reviews" },
-  { value: "2 days", label: "Campaign setup delivery" },
-  { value: "From $30", label: "Campaign setup package" },
-];
-
 export const about = {
   title: "Hi, I'm Muhammad Babar",
   body: [
     "I'm a Meta ads specialist and social media manager. I help e-commerce brands, service businesses and growing personal brands turn Facebook and Instagram into a dependable source of leads, messages and sales.",
     "My work covers the full journey: offer and audience research, campaign structure and tracking, ad creative, and the weekly optimization that makes results scalable. I've managed campaigns across lead generation, messaging and online sales, and I run social accounts end to end for brands in health, food, education and technology.",
-    "I'm rated 5.0 on Fiverr across 11 reviews, and clients consistently mention fast delivery, clear communication and work that follows the brief. Every campaign is built around measurable results, and I report on them plainly.",
   ],
 };
 
@@ -159,16 +151,20 @@ export const process = [
 // Real Fiverr reviews (short ones verbatim, longer ones as complete-sentence excerpts)
 export const testimonials = [
   { quote: "Work done with great professionalism, and a very helpful attitude when answering all our questions and suggestions!", name: "oakley_rorayy", role: "Verified Fiverr client, US" },
-  { quote: "I am very happy with the work. The seller is efficient and fast. Thank you very much.", name: "preston_48", role: "Verified Fiverr client, US" },
+  { quote: "The UGC videos were delivered as discussed and matched the style we had in mind. The content felt natural, with good attention to scripting and presentation. Communication was clear throughout the process.", name: "emilyc_designs", role: "UGC Ads · United States" },
   { quote: "Quick delivery, professional work, and everything followed the guidelines exactly.", name: "sutton_dean", role: "Verified Fiverr client, UK" },
-  { quote: "The seller was very easy to work with, and the communication was prompt.", name: "lisa_ashley7", role: "Verified Fiverr client, US" },
+  { quote: "The content was consistent with our brand guidelines, and the posting schedule was managed properly. A few adjustments were needed initially, but they were handled quickly. Satisfied with the overall service.", name: "sophia_biz22", role: "Social Media Management · United States" },
   { quote: "Amazing seller! Very responsive, patient, and truly understands client requirements.", name: "archiee8", role: "Verified Fiverr client, UK" },
+  { quote: "Good experience overall. The campaign setup was handled professionally, and the targeting strategy was clearly explained. Updates were provided when needed, and everything was delivered within the agreed timeline.", name: "jamesw_marketing", role: "Meta Ads · United Kingdom" },
+  { quote: "I am very happy with the work. The seller is efficient and fast. Thank you very much.", name: "preston_48", role: "Verified Fiverr client, US" },
+  { quote: "The editing was clean and matched the references I provided. Captions and transitions were done well without being excessive. One minor revision was needed, which was completed without any issues.", name: "oliver_mediauk", role: "Video Editing · United Kingdom" },
+  { quote: "The seller was very easy to work with, and the communication was prompt.", name: "lisa_ashley7", role: "Verified Fiverr client, US" },
 ];
 
 export const faqs = [
   { q: "What is your ad management process?", a: "I audit your offer and account, build a testing plan, launch campaigns, then optimize weekly based on data and scale winners." },
   { q: "How long until I see results?", a: "Most accounts show clear signals within 7–14 days. Stable, scalable results usually come in the first 30–60 days." },
-  { q: "How much do you charge?", a: "Campaign setup starts from $30 on Fiverr. Ongoing management and weekly reviews are available in higher packages, so message me for a clear quote." },
+  { q: "How much do you charge?", a: "It depends on your goals, ad budget and the scope of work, such as one-time campaign setup versus ongoing management. Message me with the details and I'll send you a clear, custom quote." },
   { q: "Do you work with small budgets?", a: "Yes. I work with startups and local businesses and focus on getting profitable before scaling spend." },
   { q: "Can you work with my existing team?", a: "Absolutely. I plug into your designers, editors or in-house marketers and keep everyone aligned." },
   { q: "What do I need to get started?", a: "Access to your Meta Business account, your product or offer details, and any past ad data you have." },

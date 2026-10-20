@@ -87,23 +87,36 @@ export function Nav({ name, photo, role }: { name: string; photo: string; role: 
             Contact
           </a>
         </nav>
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open}>
-          <span className="block h-0.5 w-6 bg-foreground" />
-          <span className="mt-1.5 block h-0.5 w-6 bg-foreground" />
+        <button className="relative h-10 w-10 md:hidden" onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open}>
+          <span className={`absolute left-1/2 top-1/2 block h-0.5 w-6 -translate-x-1/2 rounded bg-foreground transition-all duration-300 ${open ? "translate-y-0 rotate-45" : "-translate-y-[4px]"}`} />
+          <span className={`absolute left-1/2 top-1/2 block h-0.5 w-6 -translate-x-1/2 rounded bg-foreground transition-all duration-300 ${open ? "translate-y-0 -rotate-45" : "translate-y-[4px]"}`} />
         </button>
       </div>
-      {open && (
-        <div className="border-t border-line bg-white px-5 pb-5 md:hidden">
-          {links.map(([l, h]) => (
-            <a key={h} href={h} onClick={() => setOpen(false)} className="block py-3 text-sm">
-              {l}
+      <div className={`grid transition-all duration-300 ease-in-out md:hidden ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+        <div className="overflow-hidden">
+          <div className="border-t border-line bg-white px-5 pb-5 text-center">
+            {links.map(([l, h], i) => (
+              <a
+                key={h}
+                href={h}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: open ? `${80 + i * 60}ms` : "0ms" }}
+                className={`block py-3 text-sm transition-all duration-300 ${open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"}`}
+              >
+                {l}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              style={{ transitionDelay: open ? `${80 + links.length * 60}ms` : "0ms" }}
+              className={`mt-2 block rounded-full bg-brand px-4 py-3 text-center text-sm text-white transition-all duration-300 ${open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"}`}
+            >
+              Contact
             </a>
-          ))}
-          <a href="#contact" onClick={() => setOpen(false)} className="mt-2 block rounded-full bg-brand px-4 py-3 text-center text-sm text-white">
-            Contact
-          </a>
+          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
