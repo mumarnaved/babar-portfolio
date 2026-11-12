@@ -10,6 +10,7 @@ export const site = {
   role: "Meta Ads Specialist & Social Media Manager",
   location: "Pakistan",
   email: "m.babar2156@gmail.com",
+  whatsapp: "923157477355",
   fiverr: "https://www.fiverr.com/mbabar56/create-and-manage-high-converting-facebook-and-instagram-ad-campaigns-b9b2",
   linkedin: "https://www.linkedin.com/in/m-babar/",
   bookingUrl: "https://www.fiverr.com/mbabar56/create-and-manage-high-converting-facebook-and-instagram-ad-campaigns-b9b2",
