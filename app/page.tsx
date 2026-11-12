@@ -2,6 +2,7 @@
 import { Faq, Nav, Reveal } from "@/components/ui";
 import { about, brands, caseStudies, editedVideos, faqs, handles, process, services, site, testimonials, ugcAds, type MediaItem } from "@/lib/content";
 
+const wa = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent("Hi Babar, I found your portfolio and would like to discuss a project.")}`;
 const mail = `https://mail.google.com/mail/?view=cm&fs=1&to=${site.email}&su=${encodeURIComponent("Project enquiry")}`;
 
 function Eyebrow({ children, light = false }: { children: string; light?: boolean }) {
@@ -462,14 +463,18 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* floating email */}
+      {/* floating WhatsApp */}
       <a
-        href={mail} target="_blank" rel="noreferrer"
-        aria-label="Email me"
-        className="fixed bottom-4 right-4 z-50 grid h-12 w-12 sm:bottom-5 sm:right-5 sm:h-14 sm:w-14 place-items-center rounded-full bg-brand text-white shadow-xl transition-transform hover:scale-105"
+        href={wa}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-4 right-4 z-50 grid h-12 w-12 place-items-center rounded-full bg-brand text-white shadow-xl transition-transform hover:scale-105 sm:bottom-5 sm:right-5 sm:h-14 sm:w-14"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/icons/gmail.png" alt="" className="h-6 w-6 object-contain sm:h-7 sm:w-7" />
+        <svg viewBox="0 0 24 24" className="h-6 w-6 sm:h-7 sm:w-7" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6Z" />
+          <path d="M9.2 8.3c-.4.5-.6 1.3-.2 2.2.8 1.8 2.3 3.3 4.2 4.1.9.4 1.7.2 2.2-.3l.4-.6c.1-.2.1-.4-.1-.5l-1.5-.8c-.2-.1-.4-.1-.5.1l-.5.6c-.1.1-.3.1-.4.1-1-.4-1.8-1.2-2.3-2.2 0-.1 0-.3.1-.4l.5-.6c.1-.1.1-.3 0-.5L9.9 8.1c-.2-.2-.5-.2-.7.2Z" />
+        </svg>
       </a>
     </>
   );
